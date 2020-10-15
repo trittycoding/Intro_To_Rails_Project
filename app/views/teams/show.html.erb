@@ -1,2 +1,27 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
+<h1 class="title">Team - <%= @team.name %></h1>
+
+<h3 class="subtitle">Players drafted:</h3>
+
+<table class="table is-bordered is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Draft Year</th>
+      <th>Round Drafted</th>
+      <th>Pick Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team.players.each do |player| %>
+      <tr>
+        <td><%= link_to player.name, player %></td>
+        <td><%= player.playerposition%></td>
+        <td><%= player.draftyear %></td>
+        <td><%= player.round %></td>
+        <td><%= player.pick %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

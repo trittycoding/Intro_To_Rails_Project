@@ -1,2 +1,99 @@
-<h1>Players#show</h1>
-<p>Find me in app/views/players/show.html.erb</p>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Player - <%=@player.name%></h1>
+      <h3 class="subtitle"> Position - <%=@player.playerposition%></h3>
+    </div>
+  </div>
+</section>
+
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Weight</p>
+      <p class="title"><%= @player.weight%> lbs</p>
+    </div>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Height</p>
+      <p class="title"><%= @player.height%> inches</p>
+    </div>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Draft Year</p>
+      <p class="title"><%= @player.draftyear%></p>
+    </div>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Drafted By</p>
+      <p class="title"><%= @player.draftedby%></p>
+    </div>
+  </div>
+</nav>
+
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Forty Time</p>
+      <p class="subtitle"><%=@player.forty%> seconds</p>
+    </article>
+  </div>
+
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Shuttle Time</p>
+      <p class="subtitle"><%=@player.shuttle%> seconds</p>
+    </article>
+  </div>
+
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Three-Cone Drill</p>
+      <p class="subtitle"><%=@player.cone%> seconds</p>
+    </article>
+  </div>
+
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Bench Press</p>
+      <p class="subtitle"><%=@player.benchreps%> reps</p>
+    </article>
+  </div>
+</div>
+
+<div class="tile is-ancestor">
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Vertical Leap</p>
+      <p class="subtitle"><%=@player.vertical%> inches</p>
+    </article>
+  </div>
+
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Broad Jump</p>
+      <p class="subtitle"><%=@player.broadjump%> inches</p>
+    </article>
+  </div>
+
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Draft Round</p>
+      <p class="subtitle"><%=@player.round%></p>
+    </article>
+  </div>
+
+  <div class="tile is-parent">
+    <article class="tile is-child box">
+      <p class="title">Draft Pick</p>
+      <p class="subtitle"><%=@player.pick%></p>
+    </article>
+  </div>
+</div>
+

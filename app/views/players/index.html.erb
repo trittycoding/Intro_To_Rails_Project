@@ -1,2 +1,60 @@
-<h1>Players#index</h1>
-<p>Find me in app/views/players/index.html.erb</p>
+
+<nav class="level">
+  <p class="level-item has-text-centered">
+    <a class="link is-info">Home</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info">Teams</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <strong>NFL Players: Combine Stats 2000-2018</strong>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info">Positions</a>
+  </p>
+  <p class="level-item has-text-centered">
+    <a class="link is-info">About</a>
+  </p>
+</nav>
+
+<table class="table is-bordered is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Height(Inches)</th>
+      <th>Weight(Pounds</th>
+      <th>Forty Yard Dash(sec)</th>
+      <th>Vertical Leap(Inches)</th>
+      <th>Bench Press Reps</th>
+      <th>Broad Jump(Inches)</th>
+      <th>Three Cone Drill(sec)</th>
+      <th>Shuttle Run(sec)</th>
+      <th>Draft Year</th>
+      <th>Drafted By</th>
+      <th>Round Drafted</th>
+      <th>Pick Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= link_to player.name, player %></td>
+        <td><%= player.playerposition%></td>
+        <td><%= player.height %></td>
+        <td><%= player.weight %></td>
+        <td><%= player.forty %></td>
+        <td><%= player.vertical %></td>
+        <td><%= player.benchreps %></td>
+        <td><%= player.broadjump %></td>
+        <td><%= player.cone %></td>
+        <td><%= player.shuttle %></td>
+        <td><%= player.draftyear %></td>
+        <td><%= player.draftedby %></td>
+        <td><%= player.round %></td>
+        <td><%= player.pick %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

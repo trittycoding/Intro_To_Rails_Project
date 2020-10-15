@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
+resources :players, only: [:index, :show]
+resources :teams, only: [:index, :show]
+resources :roles, only: [:index, :show]
 
-  get 'roles/index'
-  get 'roles/show'
-  get 'teams/index'
-  get 'teams/show'
-  get 'players/index'
-  get 'players/show'
-  get 'home/index'
 end
