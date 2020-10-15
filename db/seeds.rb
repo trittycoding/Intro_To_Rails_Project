@@ -1,8 +1,8 @@
 require "csv"
 
+Player.delete_all
 Role.delete_all
 Team.delete_all
-Player.delete_all
 
 #Load from filename
 filename = Rails.root.join("db/combine_data_since_2000_PROCESSED_2018-04-26.csv")
@@ -18,6 +18,9 @@ players.each do |x|
   role_name = Role.find_or_create_by(name: x["Pos"])
   team_name = Team.find_or_create_by(name: x["Team"])
 
+  if x["Team"].blank?
+    team_name = Team.find_or_create_by(name: "Undrafted")
+  end
   # If team and role are valid, then create the player
   if role_name&.valid? && team_name&.valid?
     player = role_name.players.create(
@@ -34,11 +37,12 @@ players.each do |x|
       draftyear: x["Year"],
       draftedby: x["Team"],
       round: x["Round"],
-      pick: x["Pick"]
+      pick: x["Pick"],
+      team: team_name
     )
   end
 
-  # Output errors if not valid
+  # # Output errors if not valid
   # if !player&.valid?
   #   player.errors.messages.each do |column, errors|
   #     puts "Error with column - #{column}:"

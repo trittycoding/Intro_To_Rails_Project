@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Data from https://www.kaggle.com/savvastj/nfl-combine-data
 
-Things you may want to cover:
+CSV data contains NFL combine stats of players from 2000-2018
 
-* Ruby version
+NFL Players are evaluated on a number of physical categories such as:
+40 yard dash, vertical jump, bench press reps, broad jump distance, cone drill time, shuttle drill time.
 
-* System dependencies
+All of this information is provided to teams in order to form their evaluations for draft selections.
 
-* Configuration
+Tables:
+Role i.e position on the team
+Team i.e. Team that drafted the player
+Player i.e. Player evaluated in the draft
 
-* Database creation
+Attributes:
+Player - Name, position (FK to Role table), height, weight, forty time (seconds), vertical, bench reps, broad jump distance, cone drill (seconds), shuttle drill time (seconds), draft year, drafted by (FK to Team table, player can go undrafted), round drafted, draft pick number
 
-* Database initialization
+Team - Name (string)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Role - Position (string)
