@@ -20,3 +20,9 @@ Player - Name, position (FK to Role table), height, weight, forty time (seconds)
 Team - Name (string)
 
 Role - Position (string)
+
+Routes -
+HomeController - Index
+PlayersController - Index, Show
+TeamsController - Index, show
+RolesController - Index, show
