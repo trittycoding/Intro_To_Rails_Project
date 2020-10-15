@@ -1,2 +1,8 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1 class="title">NFL Combine Data 2000-2018</h1>
+<h3 class="subtitle">Round 1 Selections By Position</h3>
+
+<ul>
+  <% @roles.each do |role|%>
+    <li><%= Player.where("playerposition = '#{role.name}' AND round = 1").count %> <%= role.name%> </li>
+  <% end %>
+</ul>
