@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  height: 1
+  weight: 1
+  forty: 9.99
+  vertical: 9.99
+  benchreps: 1
+  broadjump: 9.99
+  cone: 9.99
+  shuttle: 9.99
+  draftyear: 1
+  draftedby: MyString
+  round: 1
+  pick: 1
+  playerposition: MyString
+  team: one
+  role: one
+
+two:
+  name: MyString
+  height: 1
+  weight: 1
+  forty: 9.99
+  vertical: 9.99
+  benchreps: 1
+  broadjump: 9.99
+  cone: 9.99
+  shuttle: 9.99
+  draftyear: 1
+  draftedby: MyString
+  round: 1
+  pick: 1
+  playerposition: MyString
+  team: two
+  role: two
