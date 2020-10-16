@@ -32,7 +32,7 @@
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Drafted By</p>
-      <p class="title"><%= @player.draftedby%></p>
+      <p class="title"><%= link_to @player.draftedby, @player.team%></p>
     </div>
   </div>
 </nav>
