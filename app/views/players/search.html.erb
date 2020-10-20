@@ -5,7 +5,7 @@
   <div class="level-left">
     <div class="level-item">
       <p class="subtitle is-5">
-        <strong><%= Player.count %></strong> players total
+        <strong><%= @returned_players.count %></strong> players found
       </p>
     </div>
     <div class="level-item">
@@ -21,6 +21,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="level-right">
     <p class="level-item"><%= link_to "Home", root_path %></p>
@@ -50,7 +51,7 @@
   </thead>
 
   <tbody>
-    <% @players.each do |player| %>
+    <% @returned_players.each do |player| %>
       <tr>
         <td><%= link_to player.name, player %></td>
         <td><%= player.playerposition%></td>
@@ -71,5 +72,5 @@
   </tbody>
 </table>
 
-<%= will_paginate @players, renderer: BulmaPagination::Rails, class: 'is-centered' %>
+<%= will_paginate @returned_players, renderer: BulmaPagination::Rails, class: 'is-centered' %>
 
