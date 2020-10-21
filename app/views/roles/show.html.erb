@@ -1,2 +1,28 @@
-<h1>Roles#show</h1>
-<p>Find me in app/views/roles/show.html.erb</p>
+<%= render partial: 'menu/levelmenu'%>
+<h1 class="title">Position - <%= @role.name %></h1>
+
+<h3 class="subtitle">Players drafted:</h3>
+
+<table class="table is-bordered is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Draft Year</th>
+      <th>Round Drafted</th>
+      <th>Pick Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @role.players.each do |player| %>
+      <tr>
+        <td><%= link_to player.name, player %></td>
+        <td><%= player.draftedby%></td>
+        <td><%= player.draftyear %></td>
+        <td><%= player.round %></td>
+        <td><%= player.pick %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

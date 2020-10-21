@@ -1,25 +1,13 @@
-<nav class="level">
-  <p class="level-item has-text-centered">
-    <%= link_to "Home", root_path %>
-  </p>
-  <p class="level-item has-text-centered">
-    <%= link_to "Teams", teams_path %>
-  </p>
-  <p class="level-item has-text-centered">
-    <strong>NFL Players: Combine Stats 2000-2018</strong>
-  </p>
-  <p class="level-item has-text-centered">
-    <%= link_to "Positions", roles_path %>
-  </p>
-  <p class="level-item has-text-centered">
-    <%= link_to "Players", players_path %>
-  </p>
-</nav>
+<%= render partial: 'menu/levelmenu'%>
 
-<h1 class="title">NFL Teams</h1>
+<div class="columns is-centered">
+  <div class="column is-fullwidth">
+    <h1 class="title">NFL Teams</h1>
 
-<ul>
-  <% @teams.each do |team|%>
-    <li><%= link_to team.name, team%></li>
-  <% end %>
-</ul>
+    <ul>
+      <% @teams.each do |team|%>
+        <li><%= link_to team.name, team%></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

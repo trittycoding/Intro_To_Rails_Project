@@ -1,0 +1,27 @@
+<!-- Main container -->
+<nav class="level">
+  <!-- Left side -->
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-5">
+      <!--If action is search, change the header to 'found'-->
+        <% if current_page?(:controller => 'players', :action => 'search')%>
+            <strong><%= Player.count %></strong> players found
+          <% else %>
+            <strong><%= Player.count %></strong> players total
+        <% end %>
+      </p>
+    </div>
+    <div class="level-item">
+      <div class="field is-grouped">
+          <%= form_with(url: search_players_path, method: :get, local: true) do %>
+            <div class="control">
+              <%= text_field_tag(:keywords, nil, class: "input level-item", placeholder: 'Search by Name') %>
+            </div>
+            <div class="control">
+              <%= submit_tag("Search", class: "button is-primary") %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>

@@ -1,175 +1,222 @@
-<nav class="level">
-  <p class="level-item has-text-centered">
-    <%= link_to "Home", root_path%>
-  </p>
-  <p class="level-item has-text-centered">
-    <%= link_to "Teams", teams_path %>
-  </p>
-  <p class="level-item has-text-centered">
-    <strong>NFL Players: Combine Stats 2000-2018</strong>
-  </p>
-  <p class="level-item has-text-centered">
-    <%= link_to "Positions", roles_path %>
-  </p>
-  <p class="level-item has-text-centered">
-    <%= link_to "Players", players_path %>
-  </p>
-</nav>
+<%= render partial: 'menu/levelmenu'%>
 
-<!--Top positions drafted-->
-<h3 class="subtitle">Round 1 Selections By Position</h3>
-<ul>
-  <% @roles.each do |role|%>
-    <li><%= Player.where("playerposition = '#{role.name}' AND round = 1").count %> <%= role.name%> </li>
-  <% end %>
-</ul>
+<!--Start Columns-->
+<div class="columns is-multiline is-mobile">
 
-<!--Top 40 Yard Dash times-->
-<h3 class="subtitle">Top 40 Yard Dash Times</h3>
-<table class="table is-bordered is-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Forty Yard Dash(sec)</th>
-      <th>Draft Year</th>
-    </tr>
-  </thead>
+    <!--Top 40 Yard Dash times-->
+  <div class="column is-one-quarter">
+    <h3 class="subtitle">Top 40 Yard Dash Times</h3>
+    <table class="table is-bordered is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Forty Yard Dash(sec)</th>
+          <th>Draft Year</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% topFortyPlayers = @players.where("forty IS NOT NULL").order("forty ASC").limit(10)%>
-    <% topFortyPlayers.each do |player|%>
-      <tr>
-        <td><%= link_to player.name, player %></td>
-        <td><%= player.playerposition%></td>
-        <td><%= player.forty %></td>
-        <td><%= player.draftyear %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% topFortyPlayers = @players.where("forty IS NOT NULL").order("forty ASC").limit(10)%>
+        <% topFortyPlayers.each do |player|%>
+          <tr>
+            <td><%= link_to player.name, player %></td>
+            <td><%= player.playerposition%></td>
+            <td><%= player.forty %></td>
+            <td><%= player.draftyear %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<!--Top Vertical Jumps-->
-<h3 class="subtitle">Top Vertical Jump Distance</h3>
-<table class="table is-bordered is-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Vertical Leap(Inches)</th>
-      <th>Draft Year</th>
-    </tr>
-  </thead>
+    <!--Top Vertical Jumps-->
+  <div class="column is-one-quarter">
+    <h3 class="subtitle">Top Vertical Jump Distance</h3>
+    <table class="table is-bordered is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Vertical Leap(Inches)</th>
+          <th>Draft Year</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% topVerticalPlayers = @players.where("vertical IS NOT NULL").order("vertical DESC").limit(10)%>
-    <% topVerticalPlayers.each do |player|%>
-      <tr>
-        <td><%= link_to player.name, player %></td>
-        <td><%= player.playerposition%></td>
-        <td><%= player.vertical %></td>
-        <td><%= player.draftyear %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% topVerticalPlayers = @players.where("vertical IS NOT NULL").order("vertical DESC").limit(10)%>
+        <% topVerticalPlayers.each do |player|%>
+          <tr>
+            <td><%= link_to player.name, player %></td>
+            <td><%= player.playerposition%></td>
+            <td><%= player.vertical %></td>
+            <td><%= player.draftyear %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<!--Top Bench Reps-->
-<h3 class="subtitle">Top Reps for Bench Press</h3>
-<table class="table is-bordered is-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Bench Press Reps</th>
-      <th>Draft Year</th>
-    </tr>
-  </thead>
+  <div class="column is-one-quarter">
+    <!--Top Broad Jump-->
+    <h3 class="subtitle">Top Broad Jump Distance</h3>
+    <table class="table is-bordered is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Broad Jump(Inches)</th>
+          <th>Draft Year</th>
+        </tr>
+      </thead>
 
-  <tbody>
-        <% topBenchRepPlayers = @players.where("benchreps IS NOT NULL").order("benchreps DESC").limit(10)%>
-        <% topBenchRepPlayers.each do |player|%>
-      <tr>
-        <td><%= link_to player.name, player %></td>
-        <td><%= player.playerposition%></td>
-        <td><%= player.benchreps %></td>
-        <td><%= player.draftyear %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+            <% topBroadJumpPlayers = @players.where("broadjump IS NOT NULL").order("broadjump DESC").limit(10)%>
+            <% topBroadJumpPlayers.each do |player|%>
+          <tr>
+            <td><%= link_to player.name, player %></td>
+            <td><%= player.playerposition%></td>
+            <td><%= player.broadjump %></td>
+            <td><%= player.draftyear %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<!--Top Broad Jump-->
-<h3 class="subtitle">Top Broad Jump Distance</h3>
-<table class="table is-bordered is-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Broad Jump(Inches)</th>
-      <th>Draft Year</th>
-    </tr>
-  </thead>
+  <div class="column is-one-quarter">
+    <!--Top Cone Drill Times-->
+    <h3 class="subtitle">Top Cone Drill Times</h3>
+    <table class="table is-bordered is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Three Cone Drill(sec)</th>
+          <th>Draft Year</th>
+        </tr>
+      </thead>
 
-  <tbody>
-        <% topBroadJumpPlayers = @players.where("broadjump IS NOT NULL").order("broadjump DESC").limit(10)%>
-        <% topBroadJumpPlayers.each do |player|%>
-      <tr>
-        <td><%= link_to player.name, player %></td>
-        <td><%= player.playerposition%></td>
-        <td><%= player.broadjump %></td>
-        <td><%= player.draftyear %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+            <% topConePlayers = @players.where("cone IS NOT NULL").order("cone ASC").limit(10)%>
+            <% topConePlayers.each do |player|%>
+          <tr>
+            <td><%= link_to player.name, player %></td>
+            <td><%= player.playerposition%></td>
+            <td><%= player.cone %></td>
+            <td><%= player.draftyear %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<!--Top Cone Drill Times-->
-<h3 class="subtitle">Top Cone Drill Times</h3>
-<table class="table is-bordered is-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Three Cone Drill(sec)</th>
-      <th>Draft Year</th>
-    </tr>
-  </thead>
+  <div class="column is-one-quarter">
+    <!--Top Shuttle Times--->
+    <h3 class="subtitle">Top Shuttle Run Times</h3>
+    <table class="table is-bordered is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Shuttle Run(sec)</th>
+          <th>Draft Year</th>
+        </tr>
+      </thead>
 
-  <tbody>
-        <% topConePlayers = @players.where("cone IS NOT NULL").order("cone ASC").limit(10)%>
-        <% topConePlayers.each do |player|%>
-      <tr>
-        <td><%= link_to player.name, player %></td>
-        <td><%= player.playerposition%></td>
-        <td><%= player.cone %></td>
-        <td><%= player.draftyear %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+            <% topShuttlePlayers = @players.where("shuttle IS NOT NULL").order("shuttle ASC").limit(10)%>
+            <% topShuttlePlayers.each do |player|%>
+          <tr>
+            <td><%= link_to player.name, player %></td>
+            <td><%= player.playerposition%></td>
+            <td><%= player.shuttle %></td>
+            <td><%= player.draftyear %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<!--Top Shuttle Times--->
-<h3 class="subtitle">Top Shuttle Run Times</h3>
-<table class="table is-bordered is-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Shuttle Run(sec)</th>
-      <th>Draft Year</th>
-    </tr>
-  </thead>
+    <div class="column is-one-quarter">
+    <!--Top Bench Reps-->
+    <h3 class="subtitle">Top Reps for Bench Press</h3>
+    <table class="table is-bordered is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Bench Press Reps</th>
+          <th>Draft Year</th>
+        </tr>
+      </thead>
 
-  <tbody>
-        <% topShuttlePlayers = @players.where("shuttle IS NOT NULL").order("shuttle ASC").limit(10)%>
-        <% topShuttlePlayers.each do |player|%>
-      <tr>
-        <td><%= link_to player.name, player %></td>
-        <td><%= player.playerposition%></td>
-        <td><%= player.shuttle %></td>
-        <td><%= player.draftyear %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+            <% topBenchRepPlayers = @players.where("benchreps IS NOT NULL").order("benchreps DESC").limit(10)%>
+            <% topBenchRepPlayers.each do |player|%>
+          <tr>
+            <td><%= link_to player.name, player %></td>
+            <td><%= player.playerposition%></td>
+            <td><%= player.benchreps %></td>
+            <td><%= player.draftyear %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+      <div class="column is-one-quarter">
+    <!--Heaviest Players-->
+    <h3 class="subtitle">Heaviest Players</h3>
+    <table class="table is-bordered is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Weight</th>
+          <th>Draft Year</th>
+        </tr>
+      </thead>
+
+      <tbody>
+            <% heaviestPlayers = @players.where("weight IS NOT NULL").order("weight DESC").limit(10)%>
+            <% heaviestPlayers.each do |player|%>
+          <tr>
+            <td><%= link_to player.name, player %></td>
+            <td><%= player.playerposition%></td>
+            <td><%= player.weight %> lbs</td>
+            <td><%= player.draftyear %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+      <div class="column is-one-quarter">
+    <!--Tallest Players-->
+    <h3 class="subtitle">Tallest Players</h3>
+    <table class="table is-bordered is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Height</th>
+          <th>Draft Year</th>
+        </tr>
+      </thead>
+
+      <tbody>
+            <% tallestPlayers = @players.where("height IS NOT NULL").order("height DESC").limit(10)%>
+            <% tallestPlayers.each do |player|%>
+          <tr>
+            <td><%= link_to player.name, player %></td>
+            <td><%= player.playerposition%></td>
+            <td><%= player.height %> inches</td>
+            <td><%= player.draftyear %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
